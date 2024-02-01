@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+    <script>
+        // add element an array
+        function AddNumber() {
+            let arr = [12, 23, 58, 456, 14, 58, 25, 789, 15, 10]
+            let d = [...arr]
+            let ind = 5
+            let element = 111
+
+            arr.push("x")
+            for (let i = ind; i < arr.length; i++) {
+                arr[i] = d[i - 1]
+            }
+            arr[ind] = element
+            return arr
+        }
+        console.log("Add number of Array:", AddNumber());
+
+        // remove first element an arary
+        function Remove() {
+            let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = arr[i + 1]
+            }
+            arr.length = arr.length - 1
+            return arr
+        }
+        console.log("Remove First element of an array:", Remove());
+
+        // remove last element an array
+        function remove(){
+            let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+            for(let i = 0; i > arr.length; i++){
+                arr[i] = arr[i + 1]
+            }
+            arr.length = arr.length - 1
+            return arr
+        }
+        console.log("Remove Last element of an array:",remove());
+
+        // single array of bubble sort
+        function bubbole() {
+            let arr = [32, 3, 5, 6, 78, 9, 24, 35, 7, 88, 998, 77, 665, 4, 1458, 1]
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j]
+                        arr[j] = arr[j + 1]
+                        arr[j + 1] = temp
+                    }
+                }
+                // find
+                let min = arr[0];
+                let max = 0;
+                let smax = 0;
+
+                for (let i = 0; i < arr.length; i++) {
+                    // find min
+                    let num = arr[i];
+                    if (num < min) {
+                        min = num;
+                    }
+                    // find max
+                    if (num > max) {
+                        max = num
+                    }
+                }
+                // find secondmax
+                for (let i = 0; i < arr.length; i++) {
+                    let num = arr[i];
+                    if (num > smax && num < max) {
+                        smax = num;
+                    }
+                }
+                let obj = {
+                    max: max,
+                    min: min,
+                    smax: smax,
+                    arr: arr,
+                }
+                return obj
+            }
+            return arr
+        }
+        console.log("Ascending order one array of Bubble sort:", bubbole());
+
+        // double array of bubble sort
+        function Bubble(){
+            let arr = [12, 15, 58, 1, 20, 10, 60, 80, 70, 55]
+            let arr1 = [98, 48, 17, 54, 77, 88, 14, 8, 7]
+            let Merge = arr.length + arr1.length;
+            let NewArr = new Array(Merge)
+            
+            for(let i = 0; i < arr.length; i++){
+                NewArr[i] = arr[i]
+            }
+            for(let j = 0; j < arr1.length; j++){
+                NewArr[arr.length + j] = arr1[j]
+            }
+            for(let i = 0; i < NewArr.length; i++){
+                for(let j = i + 1; j < NewArr.length; j++){
+                    if(NewArr[i] > NewArr[j]){
+                        let temp = NewArr[i]
+                        NewArr[i] =  NewArr[j]
+                        NewArr[j] = temp
+                    }
+                }
+            }
+
+            // find 
+            let min = NewArr[0]
+            let max = 0
+            let secondmax = 0
+
+            for(let i = 0; i < NewArr.length; i++){
+                // find min
+                let num = NewArr[i]
+                if(num < min){
+                    min = num
+                }
+                // find max
+                if(num > max){
+                    max = num
+                }
+            }
+            //find secondmax
+            for(let i = 0; i < NewArr.length; i++){
+                let num = NewArr[i]
+                if(num > secondmax && num < max){
+                    secondmax = num
+                }
+            }
+            let obj = {
+                max: max,
+                min: min,
+                secondmax: secondmax,
+                NewArr: NewArr,
+            }
+            return obj
+        }
+        console.log("Ascending order two array of Bubble sort:",Bubble());
+
+        // selection sort
+        function Selection() {
+            let arr = [2389, 288, 25, 48, 456, 7895, 1988, 0, 8]
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[i] > arr[j]) {
+                        let temp = arr[j];
+                        arr[j] = arr[i];
+                        arr[i] = temp;
+                    }
+                }
+            }
+            return arr
+        }
+        console.log("Ascending order array of Selection sort:", Selection());
+    </script>
+</body>
+
+</html>
